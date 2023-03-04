@@ -1,8 +1,8 @@
 import socket
 from socket import *
 def smtp_client(port=1025, mailserver='127.0.0.1'):
-    msg = "\r\n Thank you NYU :) QUIT \r\n"
-    endmsg = "QUIT\r\n\r\n"
+    msg = "\r\n Thank you NYU :)"
+    endmsg = ".\r\n"
 
     # Choose a mail server (e.g. Google mail server) if you want to verify the script beyond GradeScope
 
@@ -44,7 +44,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send DATA command and handle server response.
     # Fill in start
-    #clientSocket.send(b"DATA\r\n")
+    clientSocket.send(b"DATA\r\n")
     # Fill in end
 
     # Send message data.
@@ -59,7 +59,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send QUIT command and handle server response.
     # Fill in start
-    clientSocket.send("\r\nQUIT\r\n".encode())
+    clientSocket.send("QUIT\r\n".encode())
     recv4 = clientSocket.recv(1024)
     # Fill in end
 
